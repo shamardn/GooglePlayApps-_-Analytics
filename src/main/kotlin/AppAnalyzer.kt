@@ -55,20 +55,20 @@ class AppAnalyzer {
         return largest10AppsList
     }
 
-    fun findTop10InstalledApps(listOfGooglePlayApp: MutableList<App>): MutableList<String>? {
-        val listOfAppName: MutableList<String> = mutableListOf()
-        if (listOfGooglePlayApp.size > 9) {
-            listOfGooglePlayApp.sortedByDescending { it.installs }.subList(0, 10).forEach {
-                listOfAppName.add(it.appName)
+    fun getTop10InstalledApps(appsList: MutableList<App>): MutableList<App>? {
+        if (appsList.isEmpty()) return null
+
+        val listOfTopApps: MutableList<App> = mutableListOf()
+        if (appsList.size > 9) {
+            appsList.sortedByDescending { it.installs }.subList(0, 10).forEach {
+                listOfTopApps.add(it)
             }
         } else {
-            listOfGooglePlayApp.sortedByDescending { it.installs }.forEach {
-                listOfAppName.add(it.appName)
+            appsList.sortedByDescending { it.installs }.forEach {
+                listOfTopApps.add(it)
             }
         }
-        if (listOfAppName.size == 0)
-            return null
-        return listOfAppName
+        return listOfTopApps
     }
 
     fun String.convertSizeStringToMega(): Double?{
@@ -88,6 +88,7 @@ class AppAnalyzer {
         }
         return size
     }
+
     fun String.convertDateStringToDateObject(): Date?{
         val formatter = SimpleDateFormat("MMMM d yyyy")
         val date = formatter.parse(this)
