@@ -1,4 +1,6 @@
 import model.App
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AppAnalyzer {
 
@@ -86,5 +88,9 @@ class AppAnalyzer {
         }
         return size
     }
-
+    fun String.convertDateStringToDateObject(): Date?{
+        val formatter = SimpleDateFormat("MMMM d yyyy")
+        val date = formatter.parse(this)
+        return date
+    }
 }
