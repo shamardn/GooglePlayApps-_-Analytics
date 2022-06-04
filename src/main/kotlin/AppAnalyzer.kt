@@ -94,4 +94,6 @@ class AppAnalyzer {
         val date = formatter.parse(this)
         return date
     }
+
+    // Ahmed Batal function
 }

@@ -630,4 +630,9 @@ internal class FriedChickenTest{
 
     // endregion
 
+    // region test functions for (function name) function
+
+
+    //endregion
+
 }
