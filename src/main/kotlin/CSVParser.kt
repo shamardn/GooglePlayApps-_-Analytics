@@ -1,27 +1,35 @@
+import Constants.APP_NAME
+import Constants.CATEGORY
+import Constants.COMPANY
+import Constants.INSTALLS
+import Constants.REQUIRED_ANDROID
+import Constants.SIZE
+import Constants.UPDATED
 import model.App
 import java.io.File
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class CSVParser {
-    private val file = File("src/main/google_play.csv")
+
     fun parseCSV(): MutableList<App> {
-        val googlePlayApps = mutableListOf<App>()
+        val file = File(javaClass.getResource("google_play.csv")!!.path)
+        val appsList = mutableListOf<App>()
         file.forEachLine {
             val apps = it.split(",")
-            googlePlayApps.add(
+            appsList.add(
                 App(
-                    appName = apps[0],
-                    company = apps[1],
-                    category = apps[2],
-                    updated = stringToDate(apps[3]),
-                    size = megaByteConverter(apps[4]),
-                    installs = stringToLongNum(apps[5]),
-                    requiresAndroid = arrangeRequiresAndroidData(apps[7]),
+                    appName = apps[APP_NAME],
+                    company = apps[COMPANY],
+                    category = apps[CATEGORY],
+                    updated = stringToDate(apps[UPDATED]),
+                    size = megaByteConverter(apps[SIZE]),
+                    installs = stringToLongNum(apps[INSTALLS]),
+                    requiresAndroid = arrangeRequiresAndroidData(apps[REQUIRED_ANDROID]),
                 )
             )
         }
-        return googlePlayApps
+        return appsList
     }
 
     // convert from String to Date
