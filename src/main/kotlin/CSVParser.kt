@@ -1,16 +1,16 @@
-import model.GooglePlayApp
+import model.App
 import java.io.File
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class CSVParser {
     private val file = File("src/main/google_play.csv")
-    fun parseCSV(): MutableList<GooglePlayApp> {
-        val googlePlayApps = mutableListOf<GooglePlayApp>()
+    fun parseCSV(): MutableList<App> {
+        val googlePlayApps = mutableListOf<App>()
         file.forEachLine {
             val apps = it.split(",")
             googlePlayApps.add(
-                GooglePlayApp(
+                App(
                     appName = apps[0],
                     company = apps[1],
                     category = apps[2],
