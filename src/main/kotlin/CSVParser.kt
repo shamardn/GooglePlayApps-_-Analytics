@@ -10,27 +10,7 @@ import java.io.File
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class CSVParser {
-
-    fun parseCSV(): MutableList<App> {
-        val file = File(javaClass.getResource("google_play.csv")!!.path)
-        val appsList = mutableListOf<App>()
-        file.forEachLine {
-            val apps = it.split(",")
-            appsList.add(
-                App(
-                    appName = apps[APP_NAME],
-                    company = apps[COMPANY],
-                    category = apps[CATEGORY],
-                    updated = stringToDate(apps[UPDATED]),
-                    size = megaByteConverter(apps[SIZE]),
-                    installs = stringToLongNum(apps[INSTALLS]),
-                    requiresAndroid = arrangeRequiresAndroidData(apps[REQUIRED_ANDROID]),
-                )
-            )
-        }
-        return appsList
-    }
+class CSVParser: DataSource {
 
     // convert from String to Date
     private fun stringToDate(value: String): LocalDate {
@@ -65,5 +45,25 @@ class CSVParser {
             size = value.replace("G", "").toDouble() * 1024.0
         }
         return size
+    }
+
+    override fun getAllApps(): List<App> {
+        val file = File(javaClass.getResource("google_play.csv")!!.path)
+        val appsList = mutableListOf<App>()
+        file.forEachLine {
+            val apps = it.split(",")
+            appsList.add(
+                App(
+                    appName = apps[APP_NAME],
+                    company = apps[COMPANY],
+                    category = apps[CATEGORY],
+                    updated = stringToDate(apps[UPDATED]),
+                    size = megaByteConverter(apps[SIZE]),
+                    installs = stringToLongNum(apps[INSTALLS]),
+                    requiresAndroid = arrangeRequiresAndroidData(apps[REQUIRED_ANDROID]),
+                )
+            )
+        }
+        return appsList
     }
 }
