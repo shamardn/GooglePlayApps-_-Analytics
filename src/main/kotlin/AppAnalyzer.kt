@@ -1,17 +1,15 @@
 import model.App
-import java.text.SimpleDateFormat
-import java.util.*
 
 class AppAnalyzer {
 
-    fun numberOfAppsDevelopedByGoogle(appsList: MutableList<App>)
-            = appsList.filter { it.company.contains("Google") }.size
+    fun getNumberOfAppsDevelopedByGoogle(appsList: MutableList<App>, companyName: String)
+            = appsList.filter { it.company.contains(companyName) }.size
 
-    fun medicalAppsPercentage(appsList: MutableList<App>): Double {
+    fun medicalAppsPercentage(appsList: MutableList<App>, category: String): Double {
         if(appsList.isEmpty()) return 0.0
         var counter = 0
         appsList.forEach {
-            if(it.category == "Medical") counter++
+            if(it.category == category) counter++
         }
         return String.format("%.2f", counter.toDouble() / appsList.size * 100).toDouble()
     }
@@ -30,11 +28,11 @@ class AppAnalyzer {
         }
     }
 
-    fun percentageOfAndroid9AndUp(appsList: MutableList<App>): Double{
+    fun percentageOfAndroid9AndUp(appsList: MutableList<App>,androidRequired: String): Double{
         if(appsList.isEmpty()) return 0.0
         var counter = 0
         appsList.forEach {
-            if(it.requiresAndroid == "9 and up") counter++
+            if(it.requiresAndroid == androidRequired) counter++
         }
         return String.format("%.2f", counter.toDouble() / appsList.size * 100).toDouble()
     }
@@ -71,10 +69,10 @@ class AppAnalyzer {
         return listOfTopApps
     }
 
-    fun getLargestAppSizeDevelopedByMeta(appsList: MutableList<App>): App? {
+    fun getLargestAppSizeDevelopedByMeta(appsList: MutableList<App>,companyName: String): App? {
         return if(appsList.isNotEmpty()) {
             appsList.filter {
-                it.company.contains("Meta Platforms Inc")
+                it.company.contains(companyName)
             }.maxByOrNull { it.size }
         }else{
             null

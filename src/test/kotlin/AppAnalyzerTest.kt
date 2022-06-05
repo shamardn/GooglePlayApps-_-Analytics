@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter
 import kotlin.test.assertNull
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class FriedChickenTest{
+internal class AppAnalyzerTest{
 
     private lateinit var appAnalyzer: AppAnalyzer
 
@@ -31,7 +31,7 @@ internal class FriedChickenTest{
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.numberOfAppsDevelopedByGoogle(appList)
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
         // then check the result
         assertEquals(1, numberOfApps)
     }
@@ -48,7 +48,7 @@ internal class FriedChickenTest{
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.numberOfAppsDevelopedByGoogle(appList)
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
         // then check the result
         assertEquals(0, numberOfApps)
     }
@@ -65,7 +65,7 @@ internal class FriedChickenTest{
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.numberOfAppsDevelopedByGoogle(appList)
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
         // then check the result
         assertEquals(0, numberOfApps)
     }
@@ -76,7 +76,7 @@ internal class FriedChickenTest{
         val appList = mutableListOf<App>()
 
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.numberOfAppsDevelopedByGoogle(appList)
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
 
         // then check the result
         assertEquals(0, numberOfApps)
@@ -97,7 +97,7 @@ internal class FriedChickenTest{
             )
         )
         // when calculate percentage
-        val percentage = appAnalyzer.medicalAppsPercentage(appList)
+        val percentage = appAnalyzer.medicalAppsPercentage(appList,"Medical")
         // then check the result
         assertEquals(100.0, percentage)
     }
@@ -127,7 +127,7 @@ internal class FriedChickenTest{
                 51.0,1500,"5.0 and up")
         )
         // when calculate percentage
-        val percentage = appAnalyzer.medicalAppsPercentage(appList)
+        val percentage = appAnalyzer.medicalAppsPercentage(appList, "Medical")
         // then check the result
         assertEquals(33.33, percentage)
     }
@@ -151,7 +151,7 @@ internal class FriedChickenTest{
             )
         )
         // when calculate percentage
-        val percentage = appAnalyzer.medicalAppsPercentage(appList)
+        val percentage = appAnalyzer.medicalAppsPercentage(appList, "Medical")
         // then check the result
         assertEquals(0.0, percentage)
     }
@@ -162,7 +162,7 @@ internal class FriedChickenTest{
         val appList = mutableListOf<App>()
 
         // when calculate percentage
-        val percentage = appAnalyzer.medicalAppsPercentage(appList)
+        val percentage = appAnalyzer.medicalAppsPercentage(appList, "Medical")
 
         // then check the result
         assertEquals(0.0, percentage)
@@ -247,7 +247,7 @@ internal class FriedChickenTest{
         )
 
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList)
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, "9 and up")
 
         //then
         assertEquals(0.0, percentage)
@@ -279,7 +279,7 @@ internal class FriedChickenTest{
             )
         )
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList)
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList,"9 and up")
 
         //then
         assertEquals(33.33, percentage)
@@ -291,7 +291,7 @@ internal class FriedChickenTest{
         val appList = mutableListOf<App>()
 
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList)
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, "7 and up")
 
         //then
         assertEquals(0.0, percentage)
@@ -401,50 +401,50 @@ internal class FriedChickenTest{
     }
 
     @Test
-    fun should_ReturnEveryLargestApp_When_TheListOfAppsContainsLessThan9Apps() {
+    fun should_ReturnEveryLargestApp_When_TheListOfAppsContainsLessThan10Apps() {
         // given list of apps have 5 element
         val appList = mutableListOf<App>()
         appList.add(
             App(
                 "Slice: Pizza Delivery-Pick Up", "Slice Pizza App", "Food & Drink",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                23.2, 2500, "7.0 and up"
+                convertToMegaByte("923.2K"), 2500, "7.0 and up"
             )
         )
         appList.add(
             App(
                 "Crazy Pusher", "Borg Studio", "Casino",
                 LocalDate.parse("March 25 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1.3, 3000, "4.1 and up"
+                convertToMegaByte("123.2M"), 3000, "4.1 and up"
             )
         )
         appList.add(
             App(
                 "Baby Game for 2 3 4 Year Old", "IDZ Digital Private Limited", "Educational",
                 LocalDate.parse("March 9 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.52, 2800, "5.2 and up"
+                convertToMegaByte("522.0M"), 2800, "5.2 and up"
             )
         )
         appList.add(
             App(
                 "Garage Master - games for kids", "KIN GO GAMES FOR KIDS AND TODDLERS", "Educational",
                 LocalDate.parse("March 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                52.0, 2600, "4.1 and up"
+                convertToMegaByte("600.2M"), 2600, "4.1 and up"
             )
         )
         appList.add(
             App(
                 "Dinosaur Airport:Game for kids", "Yateland - Learning Games For Kids", "Educational",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                762.3, 4000, "4.1 and up"
+                convertToMegaByte("1001.0M"), 4000, "4.1 and up"
             )
         )
         val listOfLargestApps = mutableListOf<App>()
         listOfLargestApps.add(appList[4])
         listOfLargestApps.add(appList[3])
-        listOfLargestApps.add(appList[0])
-        listOfLargestApps.add(appList[1])
         listOfLargestApps.add(appList[2])
+        listOfLargestApps.add(appList[1])
+        listOfLargestApps.add(appList[0])
         // when fined the largest10 app of list
         val result = appAnalyzer.getLargest10Apps(appList)
         // then
@@ -640,46 +640,46 @@ internal class FriedChickenTest{
             App(
                 "Novi", "Meta Platforms Inc", "Finance",
                 LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("1k"), 50000, "6.0 and up"
+                convertToMegaByte("1K"), 50000, "6.0 and up"
             )
         )
         appList.add(
             App(
                 "Facebook Portal", "Meta Platforms Inc", "Lifestyle",
                 LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("2k"), 100000, "5.0 and up"
+                convertToMegaByte("2K"), 100000, "5.0 and up"
             )
         )
         appList.add(
             App(
                 "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
                 LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+                convertToMegaByte("5K"), 10000000, "Varies with device"
             )
         )
         appList.add(
             App(
                 "Facebook Lite", "Meta Platforms Inc", "Social",
                 LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("3k"), 1000000000, "Varies with device"
+                convertToMegaByte("3K"), 1000000000, "Varies with device"
             )
         )
         appList.add(
             App(
                 "Messenger Lite", "Meta Platforms Inc", "Communication",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("4k"), 500000000, "4.0 and up"
+                convertToMegaByte("4K"), 500000000, "4.0 and up"
             )
         )
 
         val currentApp = App(
             "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
             LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-            CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+            convertToMegaByte("5K"), 10000000, "Varies with device"
         )
 
         //when find the largest app
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
 
         // then
         assertEquals(currentApp, result)
@@ -691,7 +691,7 @@ internal class FriedChickenTest{
         val appList = mutableListOf<App>()
 
         // when find the top installed apps name
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
         // then
         assertNull(result)
     }
@@ -705,7 +705,7 @@ internal class FriedChickenTest{
             App(
                 "Novi", "Pangea Money Transfer", "Finance",
                 LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("1k"), 50000, "6.0 and up"
+                convertToMegaByte("1k"), 50000, "6.0 and up"
             )
         )
 
@@ -713,7 +713,7 @@ internal class FriedChickenTest{
             App(
                 "Facebook Portal", "Pangea Money Transfer", "Lifestyle",
                 LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("2k"), 100000, "5.0 and up"
+                convertToMegaByte("2k"), 100000, "5.0 and up"
             )
         )
 
@@ -721,7 +721,7 @@ internal class FriedChickenTest{
             App(
                 "Messenger Kids – The Messaging App for Kids", "Pangea Money Transfer", "Communication",
                 LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+                convertToMegaByte("5k"), 10000000, "Varies with device"
             )
         )
 
@@ -729,7 +729,7 @@ internal class FriedChickenTest{
             App(
                 "Facebook Lite", "Pangea Money Transfer", "Social",
                 LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("3k"), 1000000000, "Varies with device"
+                convertToMegaByte("3k"), 1000000000, "Varies with device"
             )
         )
 
@@ -737,12 +737,12 @@ internal class FriedChickenTest{
             App(
                 "Messenger Lite", "Pangea Money Transfer", "Communication",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                CSVParser().megaByteConverter("4k"), 500000000, "4.0 and up"
+                convertToMegaByte("4k"), 500000000, "4.0 and up"
             )
         )
 
         // when
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
         // then
         assertNull(result)
     }
