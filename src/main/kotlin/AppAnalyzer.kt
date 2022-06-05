@@ -95,5 +95,13 @@ class AppAnalyzer {
         return date
     }
 
-    // Ahmed Batal function
+    fun getLargestAppSizeDevelopedByMeta(appsList: MutableList<App>): App? {
+        return if(appsList.isNotEmpty()) {
+            appsList.filter {
+                it.company.contains("Meta Platforms Inc")
+            }.maxByOrNull { it.size }
+        }else{
+            null
+        }
+    }
 }

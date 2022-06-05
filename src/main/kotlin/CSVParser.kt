@@ -50,7 +50,7 @@ class CSVParser {
 
 
     // convert from GB or KB to MB
-    private fun megaByteConverter(value: String): Double {
+    fun megaByteConverter(value: String): Double {
         var size = 0.0
         // 1. check if it is (Varies with device) return 0
         if (value == "Varies with device") return size

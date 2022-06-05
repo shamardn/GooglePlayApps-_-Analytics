@@ -631,7 +631,121 @@ internal class FriedChickenTest{
     // endregion
 
     // region test functions for (function name) function
+    @Test
+    fun should_Return_LargestAppByMetaPlatforms(){
+        // given list of Apps
+        val appList = mutableListOf<App>()
 
+        appList.add(
+            App(
+                "Novi", "Meta Platforms Inc", "Finance",
+                LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("1k"), 50000, "6.0 and up"
+            )
+        )
+        appList.add(
+            App(
+                "Facebook Portal", "Meta Platforms Inc", "Lifestyle",
+                LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("2k"), 100000, "5.0 and up"
+            )
+        )
+        appList.add(
+            App(
+                "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
+                LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+            )
+        )
+        appList.add(
+            App(
+                "Facebook Lite", "Meta Platforms Inc", "Social",
+                LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("3k"), 1000000000, "Varies with device"
+            )
+        )
+        appList.add(
+            App(
+                "Messenger Lite", "Meta Platforms Inc", "Communication",
+                LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("4k"), 500000000, "4.0 and up"
+            )
+        )
+
+        val currentApp = App(
+            "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
+            LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+            CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+        )
+
+        //when find the largest app
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+
+        // then
+        assertEquals(currentApp, result)
+    }
+
+    @Test
+    fun should_ReturnNull_MetaApps_When_AppsList_IsEmpty() {
+        // given empty list of apps
+        val appList = mutableListOf<App>()
+
+        // when find the top installed apps name
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+        // then
+        assertNull(result)
+    }
+
+    @Test
+    fun should_ReturnNull_When_ThereIsNotMetaPlatformApps() {
+        // given list has not MetaPlatformApps
+        val appList = mutableListOf<App>()
+
+        appList.add(
+            App(
+                "Novi", "Pangea Money Transfer", "Finance",
+                LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("1k"), 50000, "6.0 and up"
+            )
+        )
+
+        appList.add(
+            App(
+                "Facebook Portal", "Pangea Money Transfer", "Lifestyle",
+                LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("2k"), 100000, "5.0 and up"
+            )
+        )
+
+        appList.add(
+            App(
+                "Messenger Kids – The Messaging App for Kids", "Pangea Money Transfer", "Communication",
+                LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("5k"), 10000000, "Varies with device"
+            )
+        )
+
+        appList.add(
+            App(
+                "Facebook Lite", "Pangea Money Transfer", "Social",
+                LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("3k"), 1000000000, "Varies with device"
+            )
+        )
+
+        appList.add(
+            App(
+                "Messenger Lite", "Pangea Money Transfer", "Communication",
+                LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+                CSVParser().megaByteConverter("4k"), 500000000, "4.0 and up"
+            )
+        )
+
+        // when
+        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList)
+        // then
+        assertNull(result)
+    }
 
     //endregion
 
