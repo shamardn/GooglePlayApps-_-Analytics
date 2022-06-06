@@ -9,6 +9,6 @@ data class App(
     var updated: LocalDate,
     var size: Double,
     var installs: Long,
-    var requiresAndroid: String,
+    var requiresAndroid: Double,
 ) {
 }

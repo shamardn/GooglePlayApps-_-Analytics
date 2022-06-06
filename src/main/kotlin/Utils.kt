@@ -12,9 +12,10 @@ import java.time.format.DateTimeFormatter
 }
 
 // remove Varies with device from data
- fun arrangeRequiresAndroidData(value: String): String {
-    if (value == "Varies with device") return value.replace("Varies with device", "")
-    return value
+ fun arrangeRequiresAndroidData(value: String): Double {
+    if (value == "Varies with device") return 0.0
+
+    return value.split(" ")[0].toDouble()
 }
 
 // convert from GB or KB to MB
