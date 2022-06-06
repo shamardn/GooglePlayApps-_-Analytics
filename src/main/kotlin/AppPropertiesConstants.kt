@@ -1,4 +1,4 @@
-object Constants {
+object AppPropertiesConstants {
     const val APP_NAME_INDEX = 0
     const val COMPANY_INDEX = 1
     const val CATEGORY_INDEX = 2

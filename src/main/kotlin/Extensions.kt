@@ -15,8 +15,4 @@ fun String.convertSizeStringToMega(): Double?{
     return size
 }
 
-fun String.convertDateStringToDateObject(): Date?{
-    val formatter = SimpleDateFormat("MMMM d yyyy")
-    val date = formatter.parse(this)
-    return date
-}
+fun String.toDate(): Date? = SimpleDateFormat("MMMM d yyyy").parse(this)

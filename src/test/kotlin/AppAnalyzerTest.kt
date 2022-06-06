@@ -18,20 +18,20 @@ internal class AppAnalyzerTest{
         appAnalyzer = AppAnalyzer()
     }
 
-    // region test functions for numberOfAppsDevelopedByGoogle function
+    // region test functions for numberOfAppsDevelopedBySomeCompany function
     @Test
     fun should_ReturnNumber1_When_HaveListWith1GoogleApp() {
         // given list contain one "Google" word
         val appList = mutableListOf<App>()
         appList.add(
             App(
-                "Jewel Blast : Temple", "Google", "Puzzle",
+                "Jewel Blast : Temple", "Hutch Games", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
                 arrangeRequiresAndroidData("4.4 and up")
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedBySomeCompany(appList,"Hutch Games")
         // then check the result
         assertEquals(1, numberOfApps)
     }
@@ -48,7 +48,7 @@ internal class AppAnalyzerTest{
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedBySomeCompany(appList,"Google")
         // then check the result
         assertEquals(0, numberOfApps)
     }
@@ -65,7 +65,7 @@ internal class AppAnalyzerTest{
             )
         )
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedBySomeCompany(appList,"Google")
         // then check the result
         assertEquals(0, numberOfApps)
     }
@@ -76,7 +76,7 @@ internal class AppAnalyzerTest{
         val appList = mutableListOf<App>()
 
         // when calculate number of Apps
-        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedByGoogle(appList,"Google")
+        val numberOfApps = appAnalyzer.getNumberOfAppsDevelopedBySomeCompany(appList,"Google")
 
         // then check the result
         assertEquals(0, numberOfApps)
@@ -679,7 +679,7 @@ internal class AppAnalyzerTest{
         )
 
         //when find the largest app
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
+        val result = appAnalyzer.getLargestAppSizeDevelopedBySomeCompany(appList,"Meta Platforms Inc")
 
         // then
         assertEquals(currentApp, result)
@@ -691,7 +691,7 @@ internal class AppAnalyzerTest{
         val appList = mutableListOf<App>()
 
         // when find the top installed apps name
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
+        val result = appAnalyzer.getLargestAppSizeDevelopedBySomeCompany(appList,"Meta Platforms Inc")
         // then
         assertNull(result)
     }
@@ -742,7 +742,7 @@ internal class AppAnalyzerTest{
         )
 
         // when
-        val result = appAnalyzer.getLargestAppSizeDevelopedByMeta(appList,"Meta Platforms Inc")
+        val result = appAnalyzer.getLargestAppSizeDevelopedBySomeCompany(appList,"Meta Platforms Inc")
         // then
         assertNull(result)
     }

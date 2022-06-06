@@ -2,7 +2,7 @@ import model.App
 
 class AppAnalyzer {
 
-    fun getNumberOfAppsDevelopedByGoogle(appsList: MutableList<App>, companyName: String)
+    fun getNumberOfAppsDevelopedBySomeCompany(appsList: MutableList<App>, companyName: String)
             = appsList.filter { it.company.contains(companyName) }.size
 
     fun medicalAppsPercentage(appsList: MutableList<App>, category: String): Double {
@@ -69,7 +69,7 @@ class AppAnalyzer {
         return listOfTopApps
     }
 
-    fun getLargestAppSizeDevelopedByMeta(appsList: MutableList<App>,companyName: String): App? {
+    fun getLargestAppSizeDevelopedBySomeCompany(appsList: MutableList<App>, companyName: String): App? {
         return if(appsList.isNotEmpty()) {
             appsList.filter {
                 it.company.contains(companyName)
