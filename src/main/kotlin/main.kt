@@ -1,8 +1,14 @@
+
+
 fun main() {
-//  val appsList = CSVParser().getAllApps()
-//
+  val appsList =CSVParser().getAllApps()
+
 //    println("getNumberOfAppsDevelopedByGoogle")
 
-  val list = mutableListOf<String>()
 
+//  val combny=AppAnalyzer()
+////  combny.getNumberOfAppsDevelopedBySomeCompany(appsList ,"MissalDaily.com")
+////  println(combny)
+//  combny.getOldestApp(appsList)
+  println(appsList)
 }

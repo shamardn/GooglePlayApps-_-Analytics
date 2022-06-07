@@ -2,7 +2,7 @@ import model.App
 import java.io.File
 
 class CSVParser: DataSource {
-    override fun getAllApps(): List<App> {
+    override fun getAllApps(): MutableList<App> {
         val file = File(javaClass.getResource("google_play.csv")!!.path)
         val appsList = mutableListOf<App>()
         file.forEachLine {
