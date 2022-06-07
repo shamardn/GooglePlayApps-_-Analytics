@@ -28,7 +28,7 @@ class AppAnalyzer {
         }
     }
 
-    fun percentageOfAndroid9AndUp(appsList: MutableList<App>,androidRequired: Double): Double{
+    fun percentageOfAndroid9AndUp(appsList: List<App>,androidRequired: Double): Double{
         if(appsList.isEmpty()) return 0.0
         var counter = 0
         appsList.forEach {
