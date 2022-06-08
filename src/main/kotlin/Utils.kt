@@ -51,6 +51,16 @@ fun arrangeRequiresAndroidData(value: String): Double {
     return finalVersion
 }
 
+fun arrangeRequiresAndroidData2(value: String): Double {
+    if (value == "Varies with device" || value.isEmpty()) return 0.0
+    val answer = value.replace("\\D".toRegex(), "")
+    return when (answer.length) {
+        1 -> answer.toDouble()
+        2 -> answer.toDouble() / 10
+        else -> answer.toDouble() / 100
+    }
+}
+
 // convert from GB or KB to MB
 fun convertToMegaByte(value: String): Double {
     var size = 0.0
