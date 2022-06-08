@@ -1,3 +1,7 @@
+import model.App
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 fun main() {
     val appsList = CSVParser().getAllApps()
 
@@ -10,5 +14,11 @@ fun main() {
 //  println(arrangeRequiresAndroidData("5.5.3")) -> ["5", "5", "3"]
 //  println(arrangeRequiresAndroidData("5.5w"))
 
-    print(AppAnalyzer().percentageOfAndroid9AndUp(appsList, 7.2))
+
+    val list = mutableListOf<App>()
+    list.add(App("", "","",
+        LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
+        15.0,122,9.0))
+    print(AppAnalyzer().percentageOfAndroid9AndUp(appsList, arrangeRequiresAndroidData2("4.4w and up")))
+
 }

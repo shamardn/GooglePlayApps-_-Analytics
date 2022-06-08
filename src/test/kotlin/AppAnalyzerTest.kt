@@ -27,7 +27,7 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "Hutch Games", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         // when calculate number of Apps
@@ -44,7 +44,7 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "Hutch Games", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         // when calculate number of Apps
@@ -61,7 +61,7 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         // when calculate number of Apps
@@ -93,7 +93,7 @@ internal class AppAnalyzerTest{
             App(
                 "Medical Mnemonics", "Regular Rate and Rhythm Software", "Medical",
                 LocalDate.parse("May 19 2011", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.362305, 1000,
-                arrangeRequiresAndroidData("1.6 and up")
+                arrangeRequiresAndroidData2("1.6 and up")
             )
         )
         // when calculate percentage
@@ -110,21 +110,21 @@ internal class AppAnalyzerTest{
             App(
                 "Medical Mnemonics", "Regular Rate and Rhythm Software", "Medical",
                 LocalDate.parse("May 19 2011", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.362305, 1000,
-                arrangeRequiresAndroidData("1.6 and up")
+                arrangeRequiresAndroidData2("1.6 and up")
             )
         )
         appList.add(
             App(
                 "FOX 4 Dallas-Fort Worth: Weather", "Fox Television Stations Inc.",
                 "Weather", LocalDate.parse("March 27 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                51.0, 2000, arrangeRequiresAndroidData("8.0 and up")
+                51.0, 2000, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         appList.add(
             App(
                 "Eyes : Nonogram","GAMEFOX", "Puzzle",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                51.0,1500,arrangeRequiresAndroidData("5.0 and up"))
+                51.0,1500,arrangeRequiresAndroidData2("5.0 and up"))
         )
         // when calculate percentage
         val percentage = appAnalyzer.medicalAppsPercentage(appList, "Medical")
@@ -140,14 +140,14 @@ internal class AppAnalyzerTest{
             App(
                 "Medical Mnemonics", "Regular Rate and Rhythm Software", "Photography",
                 LocalDate.parse("May 19 2011", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.362305, 1000,
-                arrangeRequiresAndroidData("1.6 and up")
+                arrangeRequiresAndroidData2("1.6 and up")
             )
         )
         appList.add(
             App(
                 "FOX 4 Dallas-Fort Worth: Weather", "Fox Television Stations Inc.",
                 "Weather", LocalDate.parse("March 27 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                51.0, 2000, arrangeRequiresAndroidData("8.0 and up")
+                51.0, 2000, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         // when calculate percentage
@@ -179,7 +179,7 @@ internal class AppAnalyzerTest{
             App(
                 "Medical Mnemonics", "Regular Rate and Rhythm Software", "Medical",
                 LocalDate.parse("May 19 2011", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.362305, 1000,
-                arrangeRequiresAndroidData("1.6 and up")
+                arrangeRequiresAndroidData2("1.6w and up")
             )
         )
         // when
@@ -196,21 +196,21 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         appList.add(
             App(
                 "AD Books", "Daovude", "Libraries & Demo",
                 LocalDate.parse("January 10 2021", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                30.0, 5, arrangeRequiresAndroidData("5.0 and up")
+                30.0, 5, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "myAudi", "Audi", "Auto & Vehicles",
                 LocalDate.parse("May 10 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                53.0, 1250, arrangeRequiresAndroidData("8.0 and up")
+                53.0, 1250, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         appList[1]
@@ -242,12 +242,12 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("7 and up")
+                arrangeRequiresAndroidData2("4.0 and up")
             )
         )
 
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, arrangeRequiresAndroidData("9 and up"))
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, arrangeRequiresAndroidData2("9 and up"))
 
         //then
         assertEquals(0.0, percentage)
@@ -261,25 +261,25 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 50.0, 1000,
-                arrangeRequiresAndroidData("9 and up")
+                arrangeRequiresAndroidData2("9 and up")
             )
         )
         appList.add(
             App(
                 "Jewel Blast : Temple", "SUPERBOX.Inc", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.02, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         appList.add(
             App(
                 "FOX 4 Dallas-Fort Worth: Weather", "Fox Television Stations Inc.",
                 "Weather", LocalDate.parse("March 27 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                98.1, 2000, arrangeRequiresAndroidData("8.0 and up")
+                98.1, 2000, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList,arrangeRequiresAndroidData("9 and up"))
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList,arrangeRequiresAndroidData2("9 and up"))
 
         //then
         assertEquals(33.33, percentage)
@@ -291,12 +291,23 @@ internal class AppAnalyzerTest{
         val appList = mutableListOf<App>()
 
         //when
-        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, arrangeRequiresAndroidData("7 and up"))
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, arrangeRequiresAndroidData2("7 and up"))
 
         //then
         assertEquals(0.0, percentage)
     }
 
+    @Test
+    fun should_Return_Point8_When_Use_CsvList(){
+        //given
+        val appList = CSVParser().getAllApps()
+
+        //when
+        val percentage = appAnalyzer.percentageOfAndroid9AndUp(appList, arrangeRequiresAndroidData2("9 and up"))
+
+        //then
+        assertEquals(0.8, percentage)
+    }
     // endregion
 
     // region test functions for getLargest10Apps function
@@ -308,77 +319,77 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "SUPERBOX.Inc", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.02, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         appList.add(
             App(
                 "FOX 4 Dallas-Fort Worth: Weather", "Fox Television Stations Inc.",
                 "Weather", LocalDate.parse("March 27 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.11, 2000, arrangeRequiresAndroidData("8.0 and up")
+                0.11, 2000, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         appList.add(
             App(
                 "Eyes : Nonogram", "GAMEFOX", "Puzzle",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.23, 1500, arrangeRequiresAndroidData("5.0 and up")
+                0.23, 1500, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Real Drift Car Racing", "Real Games srls", "Racing",
                 LocalDate.parse("March 26 2021", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.74, 500, arrangeRequiresAndroidData("4.1 and up")
+                0.74, 500, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Slice: Pizza Delivery-Pick Up", "Slice Pizza App", "Food & Drink",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                2.2, 2500, arrangeRequiresAndroidData("7.0 and up")
+                2.2, 2500, arrangeRequiresAndroidData2("7.0 and up")
             )
         )
         appList.add(
             App(
                 "Angel Saga: Hero Action RPG", "Alchemist Games Inc.", "Action",
                 LocalDate.parse("April 1 2020", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                58.0, 200, arrangeRequiresAndroidData("5.0 and up")
+                58.0, 200, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Crazy Pusher", "Borg Studio", "Casino",
                 LocalDate.parse("February 2 2019", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                112.8, 3000, arrangeRequiresAndroidData("4.1 and up")
+                112.8, 3000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Baby Game for 2 3 4 Year Old", "IDZ Digital Private Limited", "Educational",
                 LocalDate.parse("December 10 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                532.0, 2800, arrangeRequiresAndroidData("5.2 and up")
+                532.0, 2800, arrangeRequiresAndroidData2("5.2 and up")
             )
         )
         appList.add(
             App(
                 "Garage Master - games for kids", "KIN GO GAMES FOR KIDS AND TODDLERS", "Educational",
                 LocalDate.parse("March 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                691.3, 2600, arrangeRequiresAndroidData("4.1 and up")
+                691.3, 2600, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Manta: Comics & Graphic Novels", "RIDI Corporation", "Comics",
                 LocalDate.parse("May 16 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1150.2, 2300, arrangeRequiresAndroidData("5.0 and up")
+                1150.2, 2300, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Sago Mini School (Kids 2-5)", "Sago Mini", "Education",
                 LocalDate.parse("February 24 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1552.0, 800, arrangeRequiresAndroidData("4.4 and up")
+                1552.0, 800, arrangeRequiresAndroidData2("4.4 and up")
             )
         )
 
@@ -408,35 +419,35 @@ internal class AppAnalyzerTest{
             App(
                 "Slice: Pizza Delivery-Pick Up", "Slice Pizza App", "Food & Drink",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("923.2K"), 2500, arrangeRequiresAndroidData("7.0 and up")
+                convertToMegaByte("923.2K"), 2500, arrangeRequiresAndroidData2("7.0 and up")
             )
         )
         appList.add(
             App(
                 "Crazy Pusher", "Borg Studio", "Casino",
                 LocalDate.parse("March 25 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("123.2M"), 3000, arrangeRequiresAndroidData("4.1 and up")
+                convertToMegaByte("123.2M"), 3000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Baby Game for 2 3 4 Year Old", "IDZ Digital Private Limited", "Educational",
                 LocalDate.parse("March 9 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("522.0M"), 2800, arrangeRequiresAndroidData("5.2 and up")
+                convertToMegaByte("522.0M"), 2800, arrangeRequiresAndroidData2("5.2 and up")
             )
         )
         appList.add(
             App(
                 "Garage Master - games for kids", "KIN GO GAMES FOR KIDS AND TODDLERS", "Educational",
                 LocalDate.parse("March 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("600.2M"), 2600, arrangeRequiresAndroidData("4.1 and up")
+                convertToMegaByte("600.2M"), 2600, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Dinosaur Airport:Game for kids", "Yateland - Learning Games For Kids", "Educational",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("1001.0M"), 4000, arrangeRequiresAndroidData("4.1 and up")
+                convertToMegaByte("1001.0M"), 4000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         val listOfLargestApps = mutableListOf<App>()
@@ -473,77 +484,77 @@ internal class AppAnalyzerTest{
             App(
                 "Jewel Blast : Temple", "SUPERBOX.Inc", "Puzzle",
                 LocalDate.parse("April 11 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")), 0.02, 1000,
-                arrangeRequiresAndroidData("4.4 and up")
+                arrangeRequiresAndroidData2("4.4 and up")
             )
         )
         appList.add(
             App(
                 "FOX 4 Dallas-Fort Worth: Weather", "Fox Television Stations Inc.",
                 "Weather", LocalDate.parse("March 27 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.11, 2000, arrangeRequiresAndroidData("8.0 and up")
+                0.11, 2000, arrangeRequiresAndroidData2("8.0 and up")
             )
         )
         appList.add(
             App(
                 "Eyes : Nonogram", "GAMEFOX", "Puzzle",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.23, 3000, arrangeRequiresAndroidData("5.0 and up")
+                0.23, 3000, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Real Drift Car Racing", "Real Games srls", "Racing",
                 LocalDate.parse("March 26 2021", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.74, 4000, arrangeRequiresAndroidData("4.1 and up")
+                0.74, 4000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Slice: Pizza Delivery-Pick Up", "Slice Pizza App", "Food & Drink",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                2.2, 5000, arrangeRequiresAndroidData("7.0 and up")
+                2.2, 5000, arrangeRequiresAndroidData2("7.0 and up")
             )
         )
         appList.add(
             App(
                 "Angel Saga: Hero Action RPG", "Alchemist Games Inc.", "Action",
                 LocalDate.parse("April 1 2020", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                58.0, 6000, arrangeRequiresAndroidData("5.0 and up")
+                58.0, 6000, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Crazy Pusher", "Borg Studio", "Casino",
                 LocalDate.parse("February 2 2019", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                112.8, 7000, arrangeRequiresAndroidData("4.1 and up")
+                112.8, 7000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Baby Game for 2 3 4 Year Old", "IDZ Digital Private Limited", "Educational",
                 LocalDate.parse("December 10 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                532.0, 8000, arrangeRequiresAndroidData("5.2 and up")
+                532.0, 8000, arrangeRequiresAndroidData2("5.2 and up")
             )
         )
         appList.add(
             App(
                 "Garage Master - games for kids", "KIN GO GAMES FOR KIDS AND TODDLERS", "Educational",
                 LocalDate.parse("March 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                691.3, 9000, arrangeRequiresAndroidData("4.1 and up")
+                691.3, 9000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Manta: Comics & Graphic Novels", "RIDI Corporation", "Comics",
                 LocalDate.parse("May 16 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1150.2, 10000, arrangeRequiresAndroidData("5.0 and up")
+                1150.2, 10000, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Sago Mini School (Kids 2-5)", "Sago Mini", "Education",
                 LocalDate.parse("February 24 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1552.0, 11000, arrangeRequiresAndroidData("4.4 and up")
+                1552.0, 11000, arrangeRequiresAndroidData2("4.4 and up")
             )
         )
 
@@ -573,35 +584,35 @@ internal class AppAnalyzerTest{
             App(
                 "Slice: Pizza Delivery-Pick Up", "Slice Pizza App", "Food & Drink",
                 LocalDate.parse("May 13 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                23.2, 1000, arrangeRequiresAndroidData("7.1 and up")
+                23.2, 1000, arrangeRequiresAndroidData2("7.1 and up")
             )
         )
         appList.add(
             App(
                 "Crazy Pusher", "Borg Studio", "Casino",
                 LocalDate.parse("March 25 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                1.3, 2000, arrangeRequiresAndroidData("4.1 and up")
+                1.3, 2000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Baby Game for 2 3 4 Year Old", "IDZ Digital Private Limited", "Educational",
                 LocalDate.parse("March 9 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                0.52, 3000, arrangeRequiresAndroidData("5.2 and up")
+                0.52, 3000, arrangeRequiresAndroidData2("5.2 and up")
             )
         )
         appList.add(
             App(
                 "Garage Master - games for kids", "KIN GO GAMES FOR KIDS AND TODDLERS", "Educational",
                 LocalDate.parse("March 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                52.0, 4000, arrangeRequiresAndroidData("4.1 and up")
+                52.0, 4000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         appList.add(
             App(
                 "Dinosaur Airport:Game for kids", "Yateland - Learning Games For Kids", "Educational",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                762.3, 5000, arrangeRequiresAndroidData("4.1 and up")
+                762.3, 5000, arrangeRequiresAndroidData2("4.1 and up")
             )
         )
         val listOfLargestApps = mutableListOf<App>()
@@ -640,42 +651,42 @@ internal class AppAnalyzerTest{
             App(
                 "Novi", "Meta Platforms Inc", "Finance",
                 LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("1K"), 50000, arrangeRequiresAndroidData("6.0 and up")
+                convertToMegaByte("1K"), 50000, arrangeRequiresAndroidData2("6.0 and up")
             )
         )
         appList.add(
             App(
                 "Facebook Portal", "Meta Platforms Inc", "Lifestyle",
                 LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("2K"), 100000, arrangeRequiresAndroidData("5.0 and up")
+                convertToMegaByte("2K"), 100000, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
         appList.add(
             App(
                 "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
                 LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("5K"), 10000000, arrangeRequiresAndroidData("Varies with device")
+                convertToMegaByte("5K"), 10000000, arrangeRequiresAndroidData2("Varies with device")
             )
         )
         appList.add(
             App(
                 "Facebook Lite", "Meta Platforms Inc", "Social",
                 LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("3K"), 1000000000, arrangeRequiresAndroidData("Varies with device")
+                convertToMegaByte("3K"), 1000000000, arrangeRequiresAndroidData2("Varies with device")
             )
         )
         appList.add(
             App(
                 "Messenger Lite", "Meta Platforms Inc", "Communication",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("4K"), 500000000, arrangeRequiresAndroidData("4.0 and up")
+                convertToMegaByte("4K"), 500000000, arrangeRequiresAndroidData2("4.0 and up")
             )
         )
 
         val currentApp = App(
             "Messenger Kids – The Messaging App for Kids", "Meta Platforms Inc", "Communication",
             LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-            convertToMegaByte("5K"), 10000000, arrangeRequiresAndroidData("Varies with device")
+            convertToMegaByte("5K"), 10000000, arrangeRequiresAndroidData2("Varies with device")
         )
 
         //when find the largest app
@@ -705,7 +716,7 @@ internal class AppAnalyzerTest{
             App(
                 "Novi", "Pangea Money Transfer", "Finance",
                 LocalDate.parse("May 5 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("1k"), 50000, arrangeRequiresAndroidData("6.0 and up")
+                convertToMegaByte("1k"), 50000, arrangeRequiresAndroidData2("6.0 and up")
             )
         )
 
@@ -713,7 +724,7 @@ internal class AppAnalyzerTest{
             App(
                 "Facebook Portal", "Pangea Money Transfer", "Lifestyle",
                 LocalDate.parse("April 14 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("2k"), 100000, arrangeRequiresAndroidData("5.0 and up")
+                convertToMegaByte("2k"), 100000, arrangeRequiresAndroidData2("5.0 and up")
             )
         )
 
@@ -721,7 +732,7 @@ internal class AppAnalyzerTest{
             App(
                 "Messenger Kids – The Messaging App for Kids", "Pangea Money Transfer", "Communication",
                 LocalDate.parse("May 17 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("5k"), 10000000, arrangeRequiresAndroidData("Varies with device")
+                convertToMegaByte("5k"), 10000000, arrangeRequiresAndroidData2("Varies with device")
             )
         )
 
@@ -729,7 +740,7 @@ internal class AppAnalyzerTest{
             App(
                 "Facebook Lite", "Pangea Money Transfer", "Social",
                 LocalDate.parse("May 15 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("3k"), 1000000000, arrangeRequiresAndroidData("Varies with device")
+                convertToMegaByte("3k"), 1000000000, arrangeRequiresAndroidData2("Varies with device")
             )
         )
 
@@ -737,7 +748,7 @@ internal class AppAnalyzerTest{
             App(
                 "Messenger Lite", "Pangea Money Transfer", "Communication",
                 LocalDate.parse("May 18 2022", DateTimeFormatter.ofPattern("MMMM d yyyy")),
-                convertToMegaByte("4k"), 500000000, arrangeRequiresAndroidData("4.0 and up")
+                convertToMegaByte("4k"), 500000000, arrangeRequiresAndroidData2("4.0 and up")
             )
         )
 

@@ -35,15 +35,15 @@ fun convertStringToLongNum(value: String): Long {
  */
 fun arrangeRequiresAndroidData(value: String): Double {
     if (value == "Varies with device" || value == "10-Nov" || value.isEmpty()) return 0.0
-    val version = value.split(" ")[0]
+    val version = value.split(" ")[0] // 4.0.3 and up
 
-    if(version.length == 1) return "${version}.${0}".toDouble()
-    val finalVersion = if(version.length > 3){
+    if(version.length == 1) return "${version}.${0}".toDouble() // 9 and up   ->  9.0
+    val finalVersion = if(version.length > 3){  // 4.0w  -- 4.0.3
         val list = version.split(".")
         if(list[1].length > 1) {
-            "${list[0]}.${list[1][0]}".toDouble()
+            "${list[0]}.${list[1][0]}".toDouble()   // 4.0w -> 4.0
         } else {
-            "${list[0]}.${list[1]}".toDouble()
+            "${list[0]}.${list[1]}".toDouble()      // 4.0.3 -> 4.0
         }
     } else {
         version.toDouble()
@@ -52,12 +52,13 @@ fun arrangeRequiresAndroidData(value: String): Double {
 }
 
 fun arrangeRequiresAndroidData2(value: String): Double {
-    if (value == "Varies with device" || value.isEmpty()) return 0.0
+    if (value == "10-Nov") return -1.0
     val answer = value.replace("\\D".toRegex(), "")
     return when (answer.length) {
+        0 -> 0.0                // "Varies with device"
         1 -> answer.toDouble()
-        2 -> answer.toDouble() / 10
-        else -> answer.toDouble() / 100
+        2 -> answer.toDouble() / 10  //4.4 ->  44 /10  -> 4.4
+        else -> String.format("%.2f",answer.toDouble() / 100).toDouble()   //
     }
 }
 
