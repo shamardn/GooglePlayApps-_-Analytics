@@ -15,7 +15,7 @@ class CSVParser: DataSource {
                     updated = convertStringToDate(apps[AppPropertiesConstants.UPDATED_INDEX]),
                     size = convertToMegaByte(apps[AppPropertiesConstants.SIZE_INDEX]),
                     installs = convertStringToLongNum(apps[AppPropertiesConstants.INSTALLS_INDEX]),
-                    requiresAndroid = arrangeRequiresAndroidData2(apps[AppPropertiesConstants.REQUIRED_ANDROID_INDEX])
+                    requiresAndroid = arrangeRequiresAndroidData(apps[AppPropertiesConstants.REQUIRED_ANDROID_INDEX])
                 )
             )
         }

@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun String.convertSizeStringToMega(): Double?{
+fun String.convertSizeUnitToMega(): Double {
     var size = 0.0
     if (this == "Varies with device") return size
     if (this.contains("M")) {

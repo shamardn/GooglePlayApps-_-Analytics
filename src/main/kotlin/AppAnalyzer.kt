@@ -2,10 +2,10 @@ import model.App
 
 class AppAnalyzer {
 
-    fun getNumberOfAppsDevelopedBySomeCompany(appsList: MutableList<App>, companyName: String)
+    fun getNumberOfAppsDevelopedBySomeCompany(appsList: List<App>, companyName: String)
             = appsList.filter { it.company.contains(companyName) }.size
 
-    fun medicalAppsPercentage(appsList: MutableList<App>, category: String): Double {
+    fun getAppsByCategoryPercentage(appsList: List<App>, category: String): Double {
         if(appsList.isEmpty()) return 0.0
         var counter = 0
         appsList.forEach {
@@ -28,7 +28,7 @@ class AppAnalyzer {
         }
     }
 
-    fun percentageOfAndroid9AndUp(appsList: List<App>,androidRequired: Double): Double{
+    fun getPercentageOfRequiredAndroid(appsList: List<App>, androidRequired: Double): Double{
         if(appsList.isEmpty()) return 0.0
         var counter = 0
         appsList.forEach {
@@ -53,7 +53,7 @@ class AppAnalyzer {
         return largest10AppsList
     }
 
-    fun getTop10InstalledApps(appsList: MutableList<App>): MutableList<App>? {
+    fun getTop10InstalledApps(appsList: List<App>): MutableList<App>? {
         if (appsList.isEmpty()) return null
 
         val listOfTopApps: MutableList<App> = mutableListOf()
@@ -69,12 +69,12 @@ class AppAnalyzer {
         return listOfTopApps
     }
 
-    fun getLargestAppSizeDevelopedBySomeCompany(appsList: MutableList<App>, companyName: String): App? {
+    fun getLargestAppSizeDevelopedBySomeCompany(appsList: List<App>, companyName: String): App? {
         return if(appsList.isNotEmpty()) {
             appsList.filter {
                 it.company.contains(companyName)
             }.maxByOrNull { it.size }
-        }else{
+        }else {
             null
         }
     }
