@@ -13,7 +13,7 @@ class AppAnalyzer {
         return String.format("%.2f", counter.toDouble() / appsList.size * 100).toDouble()
     }
 
-    fun getOldestApp(appsList: List<App>) = if (appsList.isEmpty()) null else appsList.sortedBy { it.updated  }.subList(0,1)[0]
+    fun getOldestApp(appsList: List<App>) = if(appsList.isEmpty()) null else appsList.sortedBy { it.updated  }[0]
 
     fun getPercentageOfRequiredAndroid(appsList: List<App>,androidRequired: Double): Double{
         if(appsList.isEmpty()) return 0.0
@@ -24,10 +24,10 @@ class AppAnalyzer {
         return String.format("%.2f", counter.toDouble() / appsList.size * 100).toDouble()
     }
 
-    fun getLargest10Apps(appList: List<App>) = if (appList.isEmpty() || appList.size < 10) null else appList.sortedByDescending { it.size }.subList(0, 10)
+    fun getLargest10Apps(appList: List<App>) = if(appList.isEmpty() || appList.size < 10) null else appList.sortedByDescending { it.size }.subList(0, 10)
 
-    fun getTop10InstalledApps(appsList: List<App>) = if (appsList.isEmpty() || appsList.size < 10) null else appsList.sortedByDescending { it.installs }.subList(0, 10)
+    fun getTop10InstalledApps(appsList: List<App>) = if(appsList.isEmpty() || appsList.size < 10) null else appsList.sortedByDescending { it.installs }.subList(0, 10)
 
-    fun getLargestAppSizeDevelopedBySomeCompany(appsList: List<App>, companyName: String) = if (appsList.isEmpty()) null else appsList.filter { it.company.contains(companyName)}.maxByOrNull { it.size }
+    fun getLargestAppSizeDevelopedBySomeCompany(appsList: List<App>, companyName: String) = if(appsList.isEmpty()) null else appsList.filter { it.company.contains(companyName)}.maxByOrNull { it.size }
 
 }
