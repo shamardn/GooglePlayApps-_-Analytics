@@ -401,7 +401,7 @@ internal class AppAnalyzerTest{
     }
 
     @Test
-    fun should_ReturnEveryLargestApp_When_TheListOfAppsContainsLessThan10Apps() {
+    fun should_ReturnNull_When_TheListOfCsvAppsContainsLessThan10Apps() {
         // given list of apps have 5 element
         val appList = mutableListOf<App>()
         appList.add(
@@ -439,16 +439,11 @@ internal class AppAnalyzerTest{
                 convertToMegaByte("1001.0M"), 4000, arrangeRequiresAndroidData("4.1 and up")
             )
         )
-        val listOfLargestApps = mutableListOf<App>()
-        listOfLargestApps.add(appList[4])
-        listOfLargestApps.add(appList[3])
-        listOfLargestApps.add(appList[2])
-        listOfLargestApps.add(appList[1])
-        listOfLargestApps.add(appList[0])
-        // when fined the largest10 app of list
+
+        // when
         val result = appAnalyzer.getLargest10Apps(appList)
         // then
-        assertEquals(listOfLargestApps, result)
+        assertNull(result)
     }
 
     @Test
@@ -566,7 +561,7 @@ internal class AppAnalyzerTest{
     }
 
     @Test
-    fun should_ReturnAllElementAppName_When_TheListOfAppsContainsLessThan10Apps() {
+    fun should_ReturnNull_When_TheListOfAppsContainsLessThan10Apps() {
         // given list of apps have 5 elements
         val appList = mutableListOf<App>()
         appList.add(
@@ -604,16 +599,11 @@ internal class AppAnalyzerTest{
                 762.3, 5000, arrangeRequiresAndroidData("4.1 and up")
             )
         )
-        val listOfLargestApps = mutableListOf<App>()
-        listOfLargestApps.add(appList[4])
-        listOfLargestApps.add(appList[3])
-        listOfLargestApps.add(appList[2])
-        listOfLargestApps.add(appList[1])
-        listOfLargestApps.add(appList[0])
+
         // when
         val result = appAnalyzer.getTop10InstalledApps(appList)
         // then
-        assertEquals(listOfLargestApps, result)
+        assertNull( result)
     }
 
     @Test
