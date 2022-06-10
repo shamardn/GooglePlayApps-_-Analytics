@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AppAnalyzerTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2022-06-09T21:28:58" hostname="DESKTOP-EG5IPEP" time="0.986">
+<testsuite name="AppAnalyzerTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2022-06-10T22:08:25" hostname="DESKTOP-EG5IPEP" time="0.873">
   <properties/>
-  <testcase name="should_ReturnFirstApp_When_ListHasOnlyOneApp()" classname="AppAnalyzerTest" time="0.079"/>
-  <testcase name="should_ReturnEveryLargestApp_When_TheListOfAppsContainsLessThan10Apps()" classname="AppAnalyzerTest" time="0.078"/>
-  <testcase name="should_ReturnNull_When_HaveEmptyList()" classname="AppAnalyzerTest" time="0.016"/>
-  <testcase name="should_ReturnNull_When_ThereIsNotMetaPlatformApps()" classname="AppAnalyzerTest" time="0.003"/>
-  <testcase name="should_Return_33point33_When_ListHaveAppsRequiredAndroid9AndUp()" classname="AppAnalyzerTest" time="0.002"/>
+  <testcase name="should_ReturnFirstApp_When_ListHasOnlyOneApp()" classname="AppAnalyzerTest" time="0.061"/>
+  <testcase name="should_Return_Null_When_TheListOfAppsContainsLessThan10Apps()" classname="AppAnalyzerTest" time="0.016"/>
+  <testcase name="should_ReturnNull_When_HaveEmptyList()" classname="AppAnalyzerTest" time="0.005"/>
+  <testcase name="should_ReturnNull_When_ThereIsNotMetaPlatformApps()" classname="AppAnalyzerTest" time="0.022"/>
+  <testcase name="should_ReturnNull_When_TheListOfAppsContainsLessThan10Apps()" classname="AppAnalyzerTest" time="0.014"/>
+  <testcase name="should_Return_33point33_When_ListHaveAppsRequiredAndroid9AndUp()" classname="AppAnalyzerTest" time="0.004"/>
   <testcase name="should_ReturnZero_When_HaveEmptyList()" classname="AppAnalyzerTest" time="0.002"/>
-  <testcase name="should_Return_LargestAppByMetaPlatforms()" classname="AppAnalyzerTest" time="0.005"/>
-  <testcase name="should_ReturnNull_MetaApps_When_AppsList_IsEmpty()" classname="AppAnalyzerTest" time="0.052"/>
-  <testcase name="should_Return33point33Percent_When_MedicalAppsAreOneThirdOfAppsList()" classname="AppAnalyzerTest" time="0.013"/>
-  <testcase name="should_ReturnHundredPercent_When_HaveListOfMedicalAppsOnly()" classname="AppAnalyzerTest" time="0.005"/>
+  <testcase name="should_Return_LargestAppByMetaPlatforms()" classname="AppAnalyzerTest" time="0.007"/>
+  <testcase name="should_ReturnNull_MetaApps_When_AppsList_IsEmpty()" classname="AppAnalyzerTest" time="0.001"/>
+  <testcase name="should_Return33point33Percent_When_MedicalAppsAreOneThirdOfAppsList()" classname="AppAnalyzerTest" time="0.004"/>
+  <testcase name="should_ReturnHundredPercent_When_HaveListOfMedicalAppsOnly()" classname="AppAnalyzerTest" time="0.001"/>
   <testcase name="should_ReturnZero_When_NoMedicalAppInTheAppsList()" classname="AppAnalyzerTest" time="0.002"/>
-  <testcase name="should_ReturnAllElementAppName_When_TheListOfAppsContainsLessThan10Apps()" classname="AppAnalyzerTest" time="0.044"/>
-  <testcase name="should_ReturnZero_When_HaveListWithNoAnyGoogleApp()" classname="AppAnalyzerTest" time="0.001"/>
-  <testcase name="should_ReturnZero_When_ListIsEmpty()" classname="AppAnalyzerTest" time="0.003"/>
-  <testcase name="should_ReturnZero_When_HaveEmptyAppsList()" classname="AppAnalyzerTest" time="0.002"/>
-  <testcase name="should_ReturnNumber1_When_HaveListWith1GoogleApp()" classname="AppAnalyzerTest" time="0.001"/>
-  <testcase name="should_ReturnZero_When_ListHasNotAppRequiredAndroid9AndUp()" classname="AppAnalyzerTest" time="0.002"/>
-  <testcase name="should_ReturnNull_When_TheListOfAppsIsEmpty()" classname="AppAnalyzerTest" time="0.002"/>
-  <testcase name="should_Return_Null_When_TheListOfAppsIsEmpty()" classname="AppAnalyzerTest" time="0.001"/>
-  <testcase name="should_ReturnOldestApp_When_HaveListWithMultiApps()" classname="AppAnalyzerTest" time="0.04"/>
-  <testcase name="should_ReturnZero_When_HaveEmptyCompanyValue()" classname="AppAnalyzerTest" time="0.028"/>
-  <testcase name="should_ReturnTop10InstalledApp_When_TheListOfAppsContainsMoreThan9Apps()" classname="AppAnalyzerTest" time="0.018"/>
-  <testcase name="should_Return_Point8_When_Use_CsvList()" classname="AppAnalyzerTest" time="0.536"/>
+  <testcase name="should_ReturnZero_When_HaveListWithNoAnyGoogleApp()" classname="AppAnalyzerTest" time="0.002"/>
+  <testcase name="should_ReturnZero_When_ListIsEmpty()" classname="AppAnalyzerTest" time="0.002"/>
+  <testcase name="should_ReturnZero_When_HaveEmptyAppsList()" classname="AppAnalyzerTest" time="0.003"/>
+  <testcase name="should_ReturnNumber1_When_HaveListWith1GoogleApp()" classname="AppAnalyzerTest" time="0.024"/>
+  <testcase name="should_ReturnZero_When_ListHasNotAppRequiredAndroid9AndUp()" classname="AppAnalyzerTest" time="0.01"/>
+  <testcase name="should_ReturnNull_When_TheListOfAppsIsEmpty()" classname="AppAnalyzerTest" time="0.006"/>
+  <testcase name="should_Return_Null_When_TheListOfAppsIsEmpty()" classname="AppAnalyzerTest" time="0.006"/>
+  <testcase name="should_ReturnOldestApp_When_HaveListWithMultiApps()" classname="AppAnalyzerTest" time="0.035"/>
+  <testcase name="should_ReturnZero_When_HaveEmptyCompanyValue()" classname="AppAnalyzerTest" time="0.003"/>
+  <testcase name="should_ReturnTop10InstalledApp_When_TheListOfAppsContainsMoreThan9Apps()" classname="AppAnalyzerTest" time="0.019"/>
+  <testcase name="should_Return_Point8_When_Use_CsvList()" classname="AppAnalyzerTest" time="0.562"/>
   <testcase name="should_ReturnLargest10Apps_When_TheListOfAppsContainsMoreThan9Apps()" classname="AppAnalyzerTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
