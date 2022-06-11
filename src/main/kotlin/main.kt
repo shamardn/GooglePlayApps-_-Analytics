@@ -1,6 +1,23 @@
+import model.App
+
 fun main() {
+    var appsList: List<App>
+    var whatToChoose: String
+    val range = listOf("1", "2")
+    println("Choose the file you want to analyse: \n 1. CSV File \n 2. JSON File")
+    do {
+        println("Type 1 for CSV File or Type 2 for JSON File:")
+        whatToChoose = readLine()!!.toString()
+        when(whatToChoose) {
+            "1" -> appsList = CSVParser().getAllApps()
+            "2" -> appsList = JSONParser().getAllApps()
+            else -> println("Error: Unknown input, you can only type 1 or 2")
+        }
+    } while (!range.contains(whatToChoose))
+
+
     println("**************** Apps List Analytics ****************\n")
-    val appsList = CSVParser().getAllApps()
+    appsList = JSONParser().getAllApps()
     println(appsList)
     println("\n*****************************************************\n")
 
