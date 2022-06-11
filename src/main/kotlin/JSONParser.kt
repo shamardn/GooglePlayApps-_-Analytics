@@ -5,22 +5,21 @@ import java.io.File
 
 class JSONParser : DataSource {
     override fun getAllApps(): List<App> {
-        val jsonFile = File(javaClass.getResource("google_play.json")!!.path)
-        val jsonArray = JSONArray(jsonFile.readText())
         val appsList = mutableListOf<App>()
-        jsonArray.forEach {
-            val jsonObj = JSONObject(it.toString())
-            appsList.add(
-                App(
-                    appName = jsonObj.getString("appName"),
-                    company = jsonObj.getString("company"),
-                    category = jsonObj.getString("category"),
-                    updated = convertStringToDate(jsonObj.getString("updated")),
-                    size = convertToMegaByte(jsonObj.getString("size")),
-                    installs = jsonObj.getLong("installs"),
-                    requiresAndroid = arrangeRequiresAndroidData(jsonObj.getString("requiresAndroid"))
+        JSONArray(File(javaClass.getResource("google_play.json")!!.path).readText()).forEach {
+            JSONObject(it.toString()).run {
+                appsList.add(
+                    App(
+                        appName = getString(JSONKeysConstants.APP_NAME),
+                        company = getString(JSONKeysConstants.COMPANY),
+                        category = getString(JSONKeysConstants.CATEGORY),
+                        updated = convertStringToDate(getString(JSONKeysConstants.UPDATED)),
+                        size = convertToMegaByte(getString(JSONKeysConstants.SIZE)),
+                        installs = getLong(JSONKeysConstants.INSTALLS),
+                        requiresAndroid = arrangeRequiresAndroidData(getString(JSONKeysConstants.REQUIRES_ANDROID))
+                    )
                 )
-            )
+            }
         }
         return appsList
     }
