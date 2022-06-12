@@ -6,18 +6,19 @@ class CSVParser: DataSource {
     override fun getAllApps(): List<App> {
         val appsList = mutableListOf<App>()
         File(javaClass.getResource("google_play.csv")!!.path).forEachLine {
-            val apps = it.split(",")
-            appsList.add(
-                App(
-                    appName = apps[AppPropertiesConstants.APP_NAME_INDEX],
-                    company = apps[AppPropertiesConstants.COMPANY_INDEX],
-                    category = apps[AppPropertiesConstants.CATEGORY_INDEX],
-                    updated = convertStringToDate(apps[AppPropertiesConstants.UPDATED_INDEX]),
-                    size = convertToMegaByte(apps[AppPropertiesConstants.SIZE_INDEX]),
-                    installs = convertStringToLongNum(apps[AppPropertiesConstants.INSTALLS_INDEX]),
-                    requiresAndroid = arrangeRequiresAndroidData(apps[AppPropertiesConstants.REQUIRED_ANDROID_INDEX])
+            it.split(",").run {
+                appsList.add(
+                    App(
+                        appName = this[AppPropertiesConstants.APP_NAME_INDEX],
+                        company = this[AppPropertiesConstants.COMPANY_INDEX],
+                        category = this[AppPropertiesConstants.CATEGORY_INDEX],
+                        updated = convertStringToDate(this[AppPropertiesConstants.UPDATED_INDEX]),
+                        size = convertToMegaByte(this[AppPropertiesConstants.SIZE_INDEX]),
+                        installs = convertStringToLongNum(this[AppPropertiesConstants.INSTALLS_INDEX]),
+                        requiresAndroid = arrangeRequiresAndroidData(this[AppPropertiesConstants.REQUIRED_ANDROID_INDEX])
+                    )
                 )
-            )
+            }
         }
         return appsList
     }
