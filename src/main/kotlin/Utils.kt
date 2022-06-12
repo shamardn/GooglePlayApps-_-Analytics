@@ -15,10 +15,10 @@ fun arrangeRequiresAndroidData(value: String): Double {
     if (value == "10-Nov") return -1.0
     val answer = value.replace("\\D".toRegex(), "")
     return when (answer.length) {
-        0 -> 0.0                // "Varies with device"
+        0 -> 0.0
         1 -> answer.toDouble()
-        2 -> answer.toDouble() / 10  //4.4 ->  44 /10  -> 4.4
-        else -> String.format("%.2f",answer.toDouble() / 100).toDouble()   //
+        2 -> answer.toDouble() / 10
+        else -> String.format("%.2f",answer.toDouble() / 100).toDouble()
     }
 }
 
